@@ -40,6 +40,13 @@ public class ClockPlugin {
 
 	Activity mContext = null;
 
+	TextView yearTextView = null;
+	TextView monthTextView = null;
+	TextView hourTextView = null;
+	TextView minuteTextView = null;
+	TextView dayofmonthTextView = null;
+	TextView dayofweekTextView = null;
+
 	int[] yearArray = new int[4];
 	int[] dayofmonthArray = new int[2];
 	int[] hourArray = new int[2];
@@ -65,24 +72,31 @@ public class ClockPlugin {
 				null);
 
 		this.lunarCalendar = new LunarCalendar();
-		hour0ImageView = (ImageView) view.findViewById(R.id.hour0view);
-		hour1ImageView = (ImageView) view.findViewById(R.id.hour1view);
-		minute0ImageView = (ImageView) view.findViewById(R.id.minute0view);
-		minute1ImageView = (ImageView) view.findViewById(R.id.minute1view);
-		year0ImageView = (ImageView) view.findViewById(R.id.year0view);
-		year1ImageView = (ImageView) view.findViewById(R.id.year1view);
-		year2ImageView = (ImageView) view.findViewById(R.id.year2view);
-		year3ImageView = (ImageView) view.findViewById(R.id.year3view);
-		monthImageView = (ImageView) view.findViewById(R.id.monthview);
+		// hour0ImageView = (ImageView) view.findViewById(R.id.hour0view);
+		// hour1ImageView = (ImageView) view.findViewById(R.id.hour1view);
+		// minute0ImageView = (ImageView) view.findViewById(R.id.minute0view);
+		// minute1ImageView = (ImageView) view.findViewById(R.id.minute1view);
+		// year0ImageView = (ImageView) view.findViewById(R.id.year0view);
+		// year1ImageView = (ImageView) view.findViewById(R.id.year1view);
+		// year2ImageView = (ImageView) view.findViewById(R.id.year2view);
+		// year3ImageView = (ImageView) view.findViewById(R.id.year3view);
+		// monthImageView = (ImageView) view.findViewById(R.id.monthview);
 		lunarTextView = (TextView) view.findViewById(R.id.lunarview);
-		dayofmonth0ImageView = (ImageView) view
-				.findViewById(R.id.dayofmonth0view);
-		dayofmonth1ImageView = (ImageView) view
-				.findViewById(R.id.dayofmonth1view);
+		yearTextView = (TextView) view.findViewById(R.id.year0view);
+		monthTextView = (TextView) view.findViewById(R.id.monthview);
+		hourTextView = (TextView) view.findViewById(R.id.hour0view);
+		minuteTextView = (TextView) view.findViewById(R.id.minute0view);
+		dayofmonthTextView = (TextView) view.findViewById(R.id.dayofmonth0view);
+		dayofweekTextView = (TextView) view.findViewById(R.id.dayofweekview);
+		// dayofmonth0ImageView = (ImageView) view
+		// .findViewById(R.id.dayofmonth0view);
+		// dayofmonth1ImageView = (ImageView) view
+		// .findViewById(R.id.dayofmonth1view);
 
-		dayofweekImageView = (ImageView) view.findViewById(R.id.dayofweekview);
+		// dayofweekImageView = (ImageView)
+		// view.findViewById(R.id.dayofweekview);
 		// secondTextView = (TextView) view.findViewById(R.id.secondview);
-		monthpreImageView = (ImageView) view.findViewById(R.id.monthpreview);
+		// monthpreImageView = (ImageView) view.findViewById(R.id.monthpreview);
 
 		new Thread(timeRunnable).start();
 
@@ -100,115 +114,130 @@ public class ClockPlugin {
 			int dayofweek = data.getInt("day_of_week");
 			int second = data.getInt("second");
 
-			for (int i = 0; i < 4; i++) {
-				yearArray[i] = year % 10;
-				year = year / 10;
-			}
-
-			setImage(yearArray[0], year0ImageView);
-			setImage(yearArray[1], year1ImageView);
-			setImage(yearArray[2], year2ImageView);
-			setImage(yearArray[3], year3ImageView);
-
-			if (dayofmonth < 10) {
-				setImage(dayofmonth, dayofmonth0ImageView);
-			} else {
-				for (int i = 0; i < 2; i++) {
-					dayofmonthArray[i] = dayofmonth % 10;
-					dayofmonth = dayofmonth / 10;
-				}
-
-				setImage(dayofmonthArray[0], dayofmonth0ImageView);
-				setImage(dayofmonthArray[1], dayofmonth1ImageView);
-
-			}
-
-			for (int i = 0; i < 2; i++) {
-				hourArray[i] = hour % 10;
-				hour = hour / 10;
-			}
-
-			setImage(hourArray[0], hour0ImageView);
-			setImage(hourArray[1], hour1ImageView);
-
-			for (int i = 0; i < 2; i++) {
-				minuteArray[i] = minute % 10;
-				minute = minute / 10;
-			}
-
-			setImage(minuteArray[0], minute0ImageView);
-			setImage(minuteArray[1], minute1ImageView);
-
+			
+			yearTextView.setText(String.valueOf(year));
+			hourTextView.setText(String.valueOf(hour));
+			minuteTextView.setText(String.valueOf(minute));
+			/*
+			 * for (int i = 0; i < 4; i++) { yearArray[i] = year % 10; year =
+			 * year / 10; }
+			 * 
+			 * setImage(yearArray[0], year0ImageView); setImage(yearArray[1],
+			 * year1ImageView); setImage(yearArray[2], year2ImageView);
+			 * setImage(yearArray[3], year3ImageView);
+			 * 
+			 * if (dayofmonth < 10) { setImage(dayofmonth,
+			 * dayofmonth0ImageView); } else { for (int i = 0; i < 2; i++) {
+			 * dayofmonthArray[i] = dayofmonth % 10; dayofmonth = dayofmonth /
+			 * 10; }
+			 * 
+			 * setImage(dayofmonthArray[0], dayofmonth0ImageView);
+			 * setImage(dayofmonthArray[1], dayofmonth1ImageView);
+			 * 
+			 * }
+			 * 
+			 * for (int i = 0; i < 2; i++) { hourArray[i] = hour % 10; hour =
+			 * hour / 10; }
+			 * 
+			 * setImage(hourArray[0], hour0ImageView); setImage(hourArray[1],
+			 * hour1ImageView);
+			 * 
+			 * for (int i = 0; i < 2; i++) { minuteArray[i] = minute % 10;
+			 * minute = minute / 10; }
+			 * 
+			 * setImage(minuteArray[0], minute0ImageView);
+			 * setImage(minuteArray[1], minute1ImageView);
+			 */
 			// secondTextView.setText(String.valueOf(second));
 			lunarTextView.setText(lunarCalendar.getLunar());
 			switch (month) {
 			case Calendar.JANUARY:
-				// monthImageView.setImage(String.valueOf(1));
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.one));
+				monthTextView.setText(String.valueOf(1));
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.one));
 				break;
 			case Calendar.FEBRUARY:
-				// monthImageView.setImage(String.valueOf(2));
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.two));
+				monthTextView.setText(String.valueOf(2));
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.two));
 				break;
 			case Calendar.MARCH:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.three));
+				monthTextView.setText(String.valueOf(3));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.three));
 				break;
 
 			case Calendar.APRIL:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.four));
+				monthTextView.setText(String.valueOf(4));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.four));
 				break;
 
 			case Calendar.MAY:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.five));
+				monthTextView.setText(String.valueOf(5));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.five));
 				break;
 
 			case Calendar.JUNE:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.six));
+				monthTextView.setText(String.valueOf(6));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.six));
 				break;
 
 			case Calendar.JULY:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.seven));
+				monthTextView.setText(String.valueOf(7));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.seven));
 				break;
 
 			case Calendar.AUGUST:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.eight));
+				monthTextView.setText(String.valueOf(8));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.eight));
 				break;
 
 			case Calendar.SEPTEMBER:
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.night));
+				monthTextView.setText(String.valueOf(9));
+
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.night));
 				break;
 
 			case Calendar.OCTOBER:
-				monthpreImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.one));
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.zero));
+				monthTextView.setText(String.valueOf(10));
+
+				// monthpreImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.one));
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.zero));
 				break;
 
 			case Calendar.NOVEMBER:
+				monthTextView.setText(String.valueOf(11));
+
 				// monthImageView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.));
-				monthpreImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.one));
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.one));
+				// monthpreImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.one));
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.one));
 
 				break;
 
 			case Calendar.DECEMBER:
+				monthTextView.setText(String.valueOf(12));
+
 				// monthImageView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.two));
-				monthpreImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.one));
-				monthImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.two));
+				// monthpreImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.one));
+				// monthImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.two));
 
 				break;
 
@@ -218,102 +247,80 @@ public class ClockPlugin {
 
 			switch (dayofweek) {
 			case Calendar.MONDAY:
-				// dayofweekImageView.setImage("周一");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.monday));
+				dayofweekTextView.setText("周一");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.monday));
 				break;
 			case Calendar.TUESDAY:
-				// dayofweekImageView.setImage("周二");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.tuesday));
+				dayofweekTextView.setText("周二");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.tuesday));
 
 				break;
 			case Calendar.WEDNESDAY:
-				// dayofweekImageView.setImage("周三");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.wednesday));
+				dayofweekTextView.setText("周三");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.wednesday));
 
 				break;
 			case Calendar.THURSDAY:
-				// dayofweekImageView.setImage("周四");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.thuesday));
+				dayofweekTextView.setText("周四");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.thuesday));
 
 				break;
 			case Calendar.FRIDAY:
-				// dayofweekImageView.setImage("周五");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.friday));
+				dayofweekTextView.setText("周五");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.friday));
 
 				break;
 			case Calendar.SATURDAY:
-				// dayofweekImageView.setImage("周六");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.saturday));
+				dayofweekTextView.setText("周六");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.saturday));
 
 				break;
 			case Calendar.SUNDAY:
-				// dayofweekImageView.setImage("周日");
-				dayofweekImageView.setImageDrawable(mContext.getResources()
-						.getDrawable(R.drawable.sunday));
+				dayofweekTextView.setText("周日");
+				// dayofweekImageView.setImageDrawable(mContext.getResources()
+				// .getDrawable(R.drawable.sunday));
 
 				break;
 
 			default:
 				break;
 			}
-			// dayofmonthImageView.setImage(String.valueOf(dayofmonth));
+			dayofmonthTextView.setText(String.valueOf(dayofmonth));
 		};
 	};
 
-	private void setImage(int number, ImageView imageView) {
-		switch (number) {
-		case 0:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.zero));
-			break;
-		case 1:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.one));
-			break;
-		case 2:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.two));
-			break;
-		case 3:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.three));
-			break;
-		case 4:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.four));
-			break;
-		case 5:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.five));
-			break;
-		case 6:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.six));
-			break;
-		case 7:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.seven));
-			break;
-		case 8:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.eight));
-			break;
-
-		case 9:
-			imageView.setImageDrawable(mContext.getResources().getDrawable(
-					R.drawable.night));
-			break;
-
-		default:
-			break;
-		}
-	}
+	/*
+	 * private void setImage(int number, ImageView imageView) { switch (number)
+	 * { case 0: imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.zero)); break; case 1:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.one)); break; case 2:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.two)); break; case 3:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.three)); break; case 4:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.four)); break; case 5:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.five)); break; case 6:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.six)); break; case 7:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.seven)); break; case 8:
+	 * imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.eight)); break;
+	 * 
+	 * case 9: imageView.setImageDrawable(mContext.getResources().getDrawable(
+	 * R.drawable.night)); break;
+	 * 
+	 * default: break; } }
+	 */
 
 	Runnable timeRunnable = new Runnable() {
 

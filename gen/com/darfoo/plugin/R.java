@@ -22,47 +22,17 @@ public final class R {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int backgrounddock=0x7f020001;
-        public static final int backgroundhead=0x7f020002;
-        public static final int colon=0x7f020003;
-        public static final int day=0x7f020004;
-        public static final int eight=0x7f020005;
-        public static final int five=0x7f020006;
-        public static final int four=0x7f020007;
-        public static final int friday=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int monday=0x7f02000a;
-        public static final int month=0x7f02000b;
-        public static final int night=0x7f02000c;
-        public static final int one=0x7f02000d;
-        public static final int saturday=0x7f02000e;
-        public static final int seven=0x7f02000f;
-        public static final int six=0x7f020010;
-        public static final int sunday=0x7f020011;
-        public static final int three=0x7f020012;
-        public static final int thuesday=0x7f020013;
-        public static final int tuesday=0x7f020014;
-        public static final int two=0x7f020015;
-        public static final int wednesday=0x7f020016;
-        public static final int year=0x7f020017;
-        public static final int zero=0x7f020018;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000e;
-        public static final int dayofmonth0view=0x7f08000b;
-        public static final int dayofmonth1view=0x7f08000a;
-        public static final int dayofweekview=0x7f08000c;
-        public static final int hour0view=0x7f080001;
-        public static final int hour1view=0x7f080000;
-        public static final int lunarview=0x7f08000d;
-        public static final int minute0view=0x7f080003;
-        public static final int minute1view=0x7f080002;
-        public static final int monthpreview=0x7f080008;
-        public static final int monthview=0x7f080009;
-        public static final int year0view=0x7f080007;
-        public static final int year1view=0x7f080006;
-        public static final int year2view=0x7f080005;
-        public static final int year3view=0x7f080004;
+        public static final int action_settings=0x7f080007;
+        public static final int dayofmonth0view=0x7f080004;
+        public static final int dayofweekview=0x7f080005;
+        public static final int hour0view=0x7f080000;
+        public static final int lunarview=0x7f080006;
+        public static final int minute0view=0x7f080001;
+        public static final int monthview=0x7f080003;
+        public static final int year0view=0x7f080002;
     }
     public static final class layout {
         public static final int clock_view=0x7f030000;

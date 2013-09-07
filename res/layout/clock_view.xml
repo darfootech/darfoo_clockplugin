@@ -12,32 +12,32 @@
         android:layout_gravity="center"
         android:orientation="horizontal" >
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/hour1view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1" /> -->
 
-        <ImageView
+        <TextView
             android:id="@+id/hour0view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:src="@drawable/colon" />
+            android:layout_weight="1" 
+            android:text=":"/>
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/minute1view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1" /> -->
 
-        <ImageView
+        <TextView
             android:id="@+id/minute0view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -46,8 +46,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:src="@drawable/backgroundhead" />
+        android:layout_height="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +54,7 @@
         android:layout_gravity="center"
         android:orientation="horizontal" >
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/year3view"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -71,87 +70,88 @@
             android:id="@+id/year1view"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="1" />
+            android:layout_weight="1" /> -->
 
-        <ImageView
+        <TextView
             android:id="@+id/year0view"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/year" />
+            android:text="年" />
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/monthpreview"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="1" />
+            android:layout_weight="1" /> -->
 
-        <ImageView
+        <TextView
             android:id="@+id/monthview"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/month" />
+            android:text="月" />
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/dayofmonth1view"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="1" />
+            android:layout_weight="1" /> -->
 
-        <ImageView
+        <TextView
             android:id="@+id/dayofmonth0view"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1" />
 
-        <ImageView
+        <TextView
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/day" />
+            android:text="日" />
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:src="@drawable/backgrounddock" />
+        android:layout_height="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <ImageView
+        <TextView
             android:id="@+id/dayofweekview"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1" />
 
-        <!-- <TextView
+        <!--
+             <TextView
             android:id="@+id/secondview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="second" /> -->
+            android:text="second" />
+        -->
 
         <TextView
             android:id="@+id/lunarview"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:textSize="33dp"
-            android:text="lunar" />
+            android:text="lunar"
+            android:textSize="33dp" />
     </LinearLayout>
 
 </LinearLayout>
